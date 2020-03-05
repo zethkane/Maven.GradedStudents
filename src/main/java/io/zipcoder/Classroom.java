@@ -2,8 +2,11 @@ package io.zipcoder;
 
 import com.sun.tools.javac.util.List;
 
+import java.util.ArrayList;
+
 public class Classroom {
     Student[] students;
+    private ArrayList<Student> aClassroom = new ArrayList<>();
 
     public Classroom(int maxNumberOfStudents){
         this.students = new Student[maxNumberOfStudents];
@@ -17,8 +20,12 @@ public class Classroom {
         this.students = new Student[30];
     }
 
-    public String getStudents(){
-        return students.toString();
+    public String[] getStudents(){
+        String[] studentList = new String[students.length];
+        for (int i = 0; i <students.length ; i++) {
+            studentList[i] += students[i];
+        }
+        return studentList;
     }
 
     public Double getAverageExamScore(){
@@ -26,12 +33,23 @@ public class Classroom {
         return 0.0;
     }
     
-    public void addStudents(Student student){
-        Student[] newClassroom = new Student[0];
-        for (int i = 0; i < students.length ; i++) {
-            for (int j = 0; j < students.length + 1; j++) {
-                newClassroom[j] = students[i];
-            }
+    public void addStudents(Student student) {
+        aClassroom.add(student);
+
+    }
+
+    public void removeStudent(String firstName, String lastName){
+        String wholeName = "";
+        for (int i = 0; i < aClassroom.size() ; i++) {
+            if (wholeName.equals(aClassroom.get(i)))
+                aClassroom.remove(i);
+
         }
     }
+
+//    public Student getStudentByScore(Integer score){
+//        for (int i = 0; i < aClassroom.size() ; i++){}
+//
+//
+//            }
 }

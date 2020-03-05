@@ -12,8 +12,9 @@ public class StudentTest {
 
         String firstName = "Zeth";
         String lastName = "Kane";
-        Student student = new Student(firstName,lastName);
         Double[] examScores = {89.0, 75.6, 97.4};
+        Student student = new Student(firstName,lastName, examScores);
+
 
         String expected = "Exam 1 -> 89\nExam 2 -> 75.6\nExam 3 -> 97.4";
         String actual = student.getExamScores();
@@ -25,8 +26,9 @@ public class StudentTest {
     public void testAddAll(){
         String firstName = null;
         String lastName = null;
-        Student student = new Student(firstName,lastName);
         Double[] examScores = {75.0 ,85.5, 99.4};
+        Student student = new Student(firstName,lastName,examScores);
+
         student.addAll(examScores);
         String actualGrades = student.getExamScores();
         String expectedGrades = "Exam 1 -> 75.0, Exam 2 -> 85.5, Exam 3 -> 99.4";
@@ -40,7 +42,7 @@ public class StudentTest {
         String firstName = "Leon";
         String lastName = "Hunter";
         Double[] examScores = { };
-        Student student = new Student(firstName, lastName);
+        Student student = new Student(firstName, lastName,examScores);
 
         student.addScore(100.0);
         String output = student.getExamScores();
@@ -51,7 +53,8 @@ public class StudentTest {
         // : Given
         String firstName = "Leon";
         String lastName = "Hunter";
-        Student student = new Student(firstName, lastName);
+        Double[] examScores = { };
+        Student student = new Student(firstName, lastName, examScores);
         student.addScore(100.0);
 
         student.setExamScore(1, 150.0);
@@ -67,7 +70,7 @@ public class StudentTest {
         String firstName = "Leon";
         String lastName = "Hunter";
         Double[] examScores = { 100.0, 150.0, 250.0, 0.0 };
-        Student student = new Student(firstName, lastName);
+        Student student = new Student(firstName, lastName, examScores);
         student.addAll(examScores);
 
         Double expected = 500/4.0;
@@ -83,7 +86,7 @@ public class StudentTest {
         String firstName = "Leon";
         String lastName = "Hunter";
         Double[] examScores = { 100.0, 150.0, 250.0, 0.0 };
-        Student student = new Student(firstName, lastName);
+        Student student = new Student(firstName, lastName, examScores);
         student.addAll(examScores);
 
         // When
